@@ -1,89 +1,241 @@
 /**
  * Nature Chaimaa Hanafi — script.js
- * - Aucune donnée sensible ici (pas de clé API, pas de secret).
- * - Les liens WhatsApp sont construits avec encodeURIComponent pour éviter
- *   toute injection dans l'URL (même si la source est fixe ici, c'est la
- *   bonne pratique si un jour le message devient dynamique).
  */
 
 (function () {
-  "use strict";
+    "use strict";
 
-  // Numéro WhatsApp de la marque (format international, sans + ni espaces)
-  const WHATSAPP_NUMBER = "212617650798";
+    /* =========================================
+       CONFIGURATION
+    ========================================= */
 
-  /**
-   * Construit une URL wa.me sécurisée à partir d'un message.
-   * @param {string} message
-   * @returns {string}
-   */
-  function buildWhatsappUrl(message) {
-    const safeMessage = encodeURIComponent(message || "");
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${safeMessage}`;
-  }
+    const WHATSAPP_NUMBER = "212617650798";
 
-  /**
-   * Sélecteur de contenance (30ml / 50ml) sur la page produit.
-   * Met à jour le prix affiché et le message WhatsApp envoyé.
-   */
-  function initSizeSelector() {
-    const options = document.querySelectorAll(".size-option");
-    const priceEl = document.getElementById("pd-price-value");
-    const waBtn = document.getElementById("btn-order-whatsapp");
 
-    if (!options.length) return;
+    /* =========================================
+       WHATSAPP
+    ========================================= */
 
-    options.forEach((option) => {
-      option.addEventListener("click", () => selectSize(option));
-      option.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          selectSize(option);
-        }
-      });
-    });
-
-    function selectSize(option) {
-      options.forEach((o) => {
-        o.classList.remove("active");
-        o.setAttribute("aria-pressed", "false");
-      });
-      option.classList.add("active");
-      option.setAttribute("aria-pressed", "true");
-
-      const size = option.dataset.size || "";
-      const price = option.dataset.price || "";
-
-      if (priceEl && price) {
-        priceEl.textContent = price;
-      }
-
-      if (waBtn) {
-        const productName = waBtn.dataset.product || "Huile Nature Chaimaa Hanafi";
-        const message = `Bonjour, je souhaite commander : ${productName} (${size}). Merci de me confirmer la disponibilité.`;
-        waBtn.setAttribute("href", buildWhatsappUrl(message));
-      }
+    function buildWhatsappUrl(message) {
+        return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     }
-  }
 
-  /**
-   * Prépare tous les boutons "Commander via WhatsApp" qui n'ont pas
-   * de taille associée (ex : carte produit sur la page d'accueil).
-   */
-  function initSimpleWhatsappButtons() {
-    document.querySelectorAll("[data-whatsapp-simple]").forEach((btn) => {
-      const productName = btn.dataset.product || "un produit Nature Chaimaa Hanafi";
-      const message = `Bonjour, je souhaite avoir des informations sur : ${productName}.`;
-      btn.setAttribute("href", buildWhatsappUrl(message));
-    });
-  }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    initSizeSelector();
-    initSimpleWhatsappButtons();
+    /* =========================================
+       OFFERS
+    ========================================= */
 
-    // Année automatique dans le pied de page
-    const yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-  });
+    const offers = {
+
+        "30ml": {
+
+            html: `
+                <div class="offer-row">
+
+                    <span class="bottle-icons">
+                        <i class="fa-solid fa-bottle-droplet"></i>
+                    </span>
+
+                    <strong>
+                        30 مل بـ 55 درهم
+                    </strong>
+
+                </div>
+
+                <div class="offer-row">
+
+                    <span class="bottle-icons">
+                        <i class="fa-solid fa-bottle-droplet"></i>
+                        <i class="fa-solid fa-bottle-droplet"></i>
+                    </span>
+
+                    <strong>
+                        جوج 30 مل بـ 100 درهم
+                    </strong>
+
+                </div>
+            `,
+
+            whatsappMessage:
+                "السلام عليكم، بغيت نطلب زيت الشعر الطبيعي بحجم 30 مل. واش متوفر؟"
+
+        },
+
+
+        "50ml": {
+
+            html: `
+                <div class="offer-row">
+
+                    <span class="bottle-icons">
+                        <i class="fa-solid fa-bottle-droplet"></i>
+                    </span>
+
+                    <strong>
+                        50 مل بـ 95 درهم
+                    </strong>
+
+                </div>
+
+                <div class="offer-row">
+
+                    <span class="bottle-icons">
+                        <i class="fa-solid fa-bottle-droplet"></i>
+                        <i class="fa-solid fa-bottle-droplet"></i>
+                    </span>
+
+                    <strong>
+                        جوج 50 مل بـ 180 درهم
+                    </strong>
+
+                    <del>
+                        بدل 190 درهم
+                    </del>
+
+                    <span class="discount">
+                        🔥
+                    </span>
+
+                </div>
+            `,
+
+            whatsappMessage:
+                "السلام عليكم، بغيت نطلب زيت الشعر الطبيعي بحجم 50 مل. واش متوفر؟"
+
+        }
+
+    };
+
+
+    /* =========================================
+       UPDATE SIZE
+    ========================================= */
+
+    function updateSize(size) {
+
+        if (!offers[size]) {
+            return;
+        }
+
+        const sizeButtons =
+            document.querySelectorAll(".size-option");
+
+        const offer =
+            document.getElementById("pd-offer");
+
+        const whatsappButton =
+            document.getElementById("btn-order-whatsapp");
+
+
+        /* Update offer */
+
+        if (offer) {
+
+            offer.innerHTML = offers[size].html;
+
+            offer.classList.remove("offer-animation");
+
+            void offer.offsetWidth;
+
+            offer.classList.add("offer-animation");
+        }
+
+
+        /* Update active button */
+
+        sizeButtons.forEach(button => {
+
+            const isActive =
+                button.dataset.size === size;
+
+            button.classList.toggle(
+                "active",
+                isActive
+            );
+
+            button.setAttribute(
+                "aria-pressed",
+                isActive ? "true" : "false"
+            );
+
+        });
+
+
+        /* Update WhatsApp */
+
+        if (whatsappButton) {
+
+            whatsappButton.href =
+                buildWhatsappUrl(
+                    offers[size].whatsappMessage
+                );
+
+        }
+
+    }
+
+
+    /* =========================================
+       DOM READY
+    ========================================= */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+
+            const sizeButtons =
+                document.querySelectorAll(".size-option");
+
+            /* Size buttons */
+
+            sizeButtons.forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        updateSize(
+                            button.dataset.size
+                        );
+
+                    }
+                );
+
+            });
+
+
+            /* Initial size */
+
+            updateSize("30ml");
+
+
+            /* Footer year */
+
+            const year =
+                document.getElementById("year");
+
+            if (year) {
+
+                year.textContent =
+                    new Date().getFullYear();
+
+            }
+
+        }
+    );
+
 })();
+const homeWhatsapp =
+    document.getElementById("btn-order-whatsapp-home");
+
+if (homeWhatsapp) {
+
+    const phone = "212600000000";
+
+    const message = encodeURIComponent(
+        "السلام عليكم، بغيت نستفسر على زيت Nature Chaimaa Hanafi."
+    );
+
+    homeWhatsapp.href =
+        `https://wa.me/${phone}?text=${message}`;
+}

@@ -1,110 +1,417 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Huile de soin naturelle — Nature Chaimaa Hanafi</title>
-<meta name="description" content="Huile de soin naturelle Nature Chaimaa Hanafi, disponible en 30ml et 50ml. Commandez directement via WhatsApp.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <title>زيت الشعر الطبيعي — Nature Chaimaa Hanafi</title>
 
-<link rel="icon" href="assets/logo.png">
-<link rel="stylesheet" href="css/style.css">
+    <meta
+        name="description"
+        content="زيت طبيعي للعناية بالشعر والبشرة من Nature Chaimaa Hanafi، متوفر بحجم 30 مل و50 مل."
+    >
+
+    <link rel="icon" href="assets/logo.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 </head>
+
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header class="site-header">
-  <div class="container">
-    <a class="brand" href="index.html">
-      <img src="assets/logo.png" alt="Logo Nature Chaimaa Hanafi">
-      <span class="brand-text">
-        <strong>Nature Chaimaa Hanafi</strong>
-        <span>Soins naturels &amp; beauté</span>
-      </span>
-    </a>
-    <nav>
-      <a href="index.html#produits">Produits</a>
-      <a href="index.html#apropos">À propos</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </div>
+
+    <div class="container header-content">
+
+        <a href="index.html" class="brand">
+
+            <img
+                src="assets/logo.png"
+                alt="شعار Nature Chaimaa Hanafi"
+            >
+
+            <div class="brand-text">
+                <strong>Nature Chaimaa Hanafi</strong>
+                <span>العناية الطبيعية والجمال</span>
+            </div>
+
+        </a>
+
+
+        <nav class="main-nav">
+
+            <a href="index.html#produits">المنتجات</a>
+
+            <a href="index.html#apropos">من نحن</a>
+
+            <a href="index.html#contact">تواصل معنا</a>
+
+        </nav>
+
+    </div>
+
 </header>
 
+
+<!-- ================= MAIN ================= -->
+
 <main>
-  <div class="container">
-    <p class="breadcrumb"><a href="index.html">Accueil</a> / <a href="index.html#produits">Produits</a> / Huile de soin naturelle</p>
-  </div>
 
-  <section class="product-detail">
+    <!-- Breadcrumb -->
+
     <div class="container">
-      <div class="pd-media">
-        <img src="assets/huile-hero.jpg" alt="Huile de soin Nature Chaimaa Hanafi, flacons compte-gouttes 30ml et 50ml">
-      </div>
 
-      <div class="pd-info">
-        <p class="pd-kicker">Best-seller</p>
-        <h1>Huile de soin naturelle</h1>
-        <p class="pd-desc">
-          Une huile pure, conditionnée en flacon compte-gouttes pour un dosage précis.
-          Formulée à la main en petites quantités, elle s'applique aussi bien sur cheveux
-          que sur peau selon vos besoins.
-        </p>
+        <div class="breadcrumb">
 
-        <!--
-          Sélecteur de contenance : "data-price" est vide pour l'instant.
-          Remplace la valeur par ton prix réel, ex: data-price="120 DH"
-        -->
-        <div class="pd-sizes" role="group" aria-label="Choix de la contenance">
-          <button type="button" class="size-option active" data-size="30ml" data-price="Sur demande" aria-pressed="true">
-            <strong>30 ml</strong>
-            <span>Format découverte</span>
-          </button>
-          <button type="button" class="size-option" data-size="50ml" data-price="Sur demande" aria-pressed="false">
-            <strong>50 ml</strong>
-            <span>Format familial</span>
-          </button>
+            <a href="index.html">الرئيسية</a>
+
+            <span>/</span>
+
+            <a href="index.html#produits">المنتجات</a>
+
+            <span>/</span>
+
+            <span>زيت الشعر الطبيعي</span>
+
         </div>
 
-        <p class="pd-price">
-          <span id="pd-price-value">Sur demande</span>
-          <small>Prix confirmé lors de la prise de contact</small>
-        </p>
-
-        <ul class="pd-list">
-          <li><span>Contenances</span> <strong>30 ml / 50 ml</strong></li>
-          <li><span>Flacon</span> <strong>Verre ambré, compte-gouttes</strong></li>
-          <li><span>Usage</span> <strong>Cheveux &amp; peau</strong></li>
-          <li><span>Préparation</span> <strong>Artisanale, à la commande</strong></li>
-        </ul>
-
-        <div class="pd-actions">
-          <a
-            href="#"
-            id="btn-order-whatsapp"
-            class="btn btn-whatsapp"
-            data-product="Huile de soin naturelle"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.19 0 4.25.85 5.8 2.4a8.2 8.2 0 0 1 2.4 5.81c0 4.53-3.68 8.21-8.21 8.21a8.2 8.2 0 0 1-4.15-1.13l-.3-.17-3.14.83.84-3.06-.19-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.53 3.69-8.21 8.21-8.21zm-4.47 4.7c-.16 0-.42.06-.64.31-.22.24-.85.83-.85 2.03 0 1.2.87 2.35.99 2.51.12.16 1.7 2.6 4.13 3.64 2.02.86 2.43.69 2.87.65.44-.04 1.41-.58 1.61-1.13.2-.56.2-1.03.14-1.13-.06-.1-.22-.16-.46-.28-.24-.12-1.41-.7-1.63-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.95-1.21-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.32-.75-1.8-.2-.47-.4-.4-.55-.41-.14-.01-.3-.01-.46-.01z"/></svg>
-            Commander via WhatsApp
-          </a>
-          <a href="index.html#produits" class="btn btn-ghost">← Retour aux produits</a>
-        </div>
-      </div>
     </div>
-  </section>
+
+
+    <!-- Product -->
+
+    <section class="product-detail">
+
+        <div class="container product-grid">
+
+
+            <!-- IMAGE -->
+
+            <div class="pd-media">
+
+                <div class="image-wrapper">
+
+                    <img
+                        src="assets/WhatsApp Image 2026-09-25 at 22.06.41.jpeg"
+                        alt="زيت الشعر الطبيعي Nature Chaimaa Hanafi"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- INFO -->
+
+            <div class="pd-info">
+
+                <span class="pd-kicker">
+                    الأكثر طلباً
+                </span>
+
+
+                <h1>
+                    🌿 زيت الشعر الطبيعي
+                </h1>
+
+
+                <p class="pd-desc">
+
+                    سرّ الشعر الصحي والقوي يبدأ من الطبيعة. 💚
+
+                    تركيبة فريدة تجمع بين أكثر من 32 عشبة طبيعية
+                    مع زيوت مغذية ومرطبة تم اختيارها بعناية
+                    للعناية بشعرك من الجذور إلى الأطراف.
+
+                </p>
+
+
+                <!-- BENEFITS -->
+
+                <div class="benefits">
+
+                    <div class="benefit">
+                        <i class="fa-solid fa-droplet"></i>
+                        <span>يساعد على ترطيب الشعر بعمق</span>
+                    </div>
+
+                    <div class="benefit">
+                        <i class="fa-solid fa-seedling"></i>
+                        <span>يساهم في تكثيف الشعر</span>
+                    </div>
+
+                    <div class="benefit">
+                        <i class="fa-solid fa-leaf"></i>
+                        <span>يغذي فروة الرأس ويقوي الشعر</span>
+                    </div>
+
+                    <div class="benefit">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>يمنح الشعر نعومة ولمعاناً طبيعياً</span>
+                    </div>
+
+                    <div class="benefit">
+                        <i class="fa-solid fa-scissors"></i>
+                        <span>يساعد على التقليل من التقصف والتكسر</span>
+                    </div>
+
+                    <div class="benefit">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>مناسب لجميع أنواع الشعر</span>
+                    </div>
+
+                </div>
+
+
+                <!-- SIZE -->
+
+                <div class="size-section">
+
+                    <h2>اختاري الحجم</h2>
+
+
+                    <div
+                        class="pd-sizes"
+                        role="group"
+                        aria-label="اختيار السعة"
+                    >
+
+                        <button
+                            type="button"
+                            class="size-option active"
+                            data-size="30ml"
+                            aria-pressed="true"
+                        >
+
+                            <span class="size-icon">
+                                <i class="fa-solid fa-bottle-droplet"></i>
+                            </span>
+
+                            <strong>30 مل</strong>
+
+                            <small>
+                                حجم تجريبي
+                            </small>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="size-option"
+                            data-size="50ml"
+                            aria-pressed="false"
+                        >
+
+                            <span class="size-icon">
+                                <i class="fa-solid fa-bottle-droplet"></i>
+                            </span>
+
+                            <strong>50 مل</strong>
+
+                            <small>
+                                الحجم العائلي
+                            </small>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OFFER -->
+
+                <div
+                    class="pd-offer"
+                    id="pd-offer"
+                    aria-live="polite"
+                >
+
+                    <div class="offer-row">
+
+                        <span class="bottle-icons">
+                            <i class="fa-solid fa-bottle-droplet"></i>
+                        </span>
+
+                        <strong>
+                            30 مل بـ 55 درهم
+                        </strong>
+
+                    </div>
+
+
+                    <div class="offer-row">
+
+                        <span class="bottle-icons">
+                            <i class="fa-solid fa-bottle-droplet"></i>
+                            <i class="fa-solid fa-bottle-droplet"></i>
+                        </span>
+
+                        <strong>
+                            جوج 30 مل بـ 100 درهم
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT DETAILS -->
+
+                <div class="product-details">
+
+                    <div class="detail-item">
+
+                        <span>
+                            <i class="fa-solid fa-bottle-droplet"></i>
+                            القارورة
+                        </span>
+
+                        <strong>
+                            زجاجية بنية مع قطّارة
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            <i class="fa-solid fa-spa"></i>
+                            الاستعمال
+                        </span>
+
+                        <strong>
+                            للشعر والبشرة
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            <i class="fa-solid fa-leaf"></i>
+                            المكونات
+                        </span>
+
+                        <strong>
+                            أكثر من 32 عشبة طبيعية
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            التحضير
+                        </span>
+
+                        <strong>
+                            طبيعي وحرفي حسب الطلب
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+
+                <div class="pd-actions">
+
+                    <a
+                        href="#"
+                        id="btn-order-whatsapp"
+                        class="btn btn-whatsapp"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        <span>
+                            الطلب عبر واتساب
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="index.html#produits"
+                        class="btn btn-ghost"
+                    >
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                        العودة للمنتجات
+
+                    </a>
+
+                </div>
+
+
+                <p class="contact-note">
+
+                    <i class="fa-regular fa-message"></i>
+
+                    للطلب والاستفسار، تواصلي معنا عبر واتساب.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </main>
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer class="site-footer">
-  <div class="container">
-    <span>© <span id="year"></span> Nature Chaimaa Hanafi — Tous droits réservés</span>
-    <a href="https://instagram.com/nature_chaimaa" target="_blank" rel="noopener noreferrer">@nature_chaimaa</a>
-  </div>
+
+    <div class="container footer-content">
+
+        <span>
+            © <span id="year"></span>
+            Nature Chaimaa Hanafi — جميع الحقوق محفوظة
+        </span>
+
+
+        <a
+            href="https://instagram.com/nature_chaimaa"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <i class="fa-brands fa-instagram"></i>
+
+            @nature_chaimaa
+
+        </a>
+
+    </div>
+
 </footer>
 
+
+<!-- ================= JAVASCRIPT ================= -->
+
 <script src="js/script.js"></script>
+
 </body>
 </html>
