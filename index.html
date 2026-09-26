@@ -89,10 +89,25 @@
         </a>
 
 
-        <nav class="main-nav">
+        <!-- زر القائمة في الهاتف -->
+        <button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="فتح القائمة"
+            type="button"
+        >
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+
+        <nav class="main-nav" id="mainNav">
 
             <a href="#produits">
                 المنتجات
+            </a>
+
+            <a href="#packs">
+                الباكات
             </a>
 
             <a href="#apropos">
@@ -110,9 +125,7 @@
 </header>
 
 
-
 <main>
-
 
 <!-- =====================================
      HERO
@@ -136,8 +149,7 @@
 
             <h1>
 
-                العناية الطبيعية،
-                <em>ببساطة حقيقية</em>
+                العناية الطبيعية، ببساطة حقيقية
 
             </h1>
 
@@ -150,35 +162,15 @@
                 خيرات الطبيعة في حياتك اليومية.
 
             </p>
-
-
             <div class="hero-actions">
-
-                <a
-                    href="#produits"
-                    class="btn btn-primary"
-                >
-
-                    <i class="fa-solid fa-leaf"></i>
-
-                    اكتشفي الزيت
-
-                </a>
-
-
-                <a
-                    href="#contact"
-                    class="btn btn-ghost"
-                >
-
+              <a href="#produits" class="btn btn-primary">
+                <i class="fa-solid fa-leaf"></i>اكتشفي الزيت
+              </a>
+                <a href="#contact" class="btn btn-ghost">
                     <i class="fa-regular fa-message"></i>
-
                     تواصلي معنا
-
                 </a>
-
             </div>
-
         </div>
 
 
@@ -366,6 +358,113 @@
             </div>
 
         </a>
+        <a
+    class="product-card"
+    href="savon-beldi.html"
+>
+
+    <div class="product-media">
+
+        <img
+            src="assets/WhatsApp Image 2026-09-25 at 22.06.47.jpeg"
+            alt="الصابون البلدي بالنيلة الزرقاء Nature Chaimaa Hanafi"
+        >
+
+    </div>
+
+
+    <div class="product-body">
+
+        <span class="product-kicker">
+            عناية مغربية
+        </span>
+
+
+        <h3>
+            🧼 الصابون البلدي بالنيلة الزرقاء 💙
+        </h3>
+
+
+        <p>
+            عناية مغربية أصيلة لبشرة أكثر صفاء
+            وإشراقة طبيعية، بتركيبة مستوحاة
+            من التراث المغربي.
+        </p>
+
+
+        <div class="product-features">
+
+            <span>
+
+                <i class="fa-solid fa-soap"></i>
+
+                طبيعي
+
+            </span>
+
+
+            <span>
+
+                <i class="fa-solid fa-spa"></i>
+
+                للعناية بالبشرة
+
+            </span>
+
+
+            <span>
+
+                <i class="fa-solid fa-leaf"></i>
+
+                بالنيلة الزرقاء
+
+            </span>
+
+        </div>
+
+
+        <div class="product-sizes">
+
+            <span>
+                الصابون البلدي
+            </span>
+
+            <span>
+                50 درهم
+            </span>
+
+        </div>
+
+
+        <div class="product-bottom">
+
+            <strong>
+                50 درهم
+            </strong>
+
+
+            <span class="product-link">
+
+                اكتشفي المنتج
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+            </span>
+
+        </div>
+
+    </div>
+
+</a>
+
+        <!--
+          Placeholder pour le lien "الباكات" du menu : la section n'existait
+          pas encore dans le HTML, ce qui cassait l'ancre #packs.
+          Remplace ce bloc par tes vraies offres/packs quand ils seront prêts.
+        -->
+        <div class="packs-teaser" id="packs">
+            قريباً: باكات مميزة تجمع بين منتجاتنا 🌿
+        </div>
 
     </div>
 
