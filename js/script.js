@@ -4,18 +4,14 @@
  * - Les liens WhatsApp sont construits avec encodeURIComponent pour éviter
  *   toute injection dans l'URL.
  */
-
 (function () {
   "use strict";
-
   // Numéro WhatsApp de la marque (format international, sans + ni espaces)
   const WHATSAPP_NUMBER = "212617650798";
-
   function buildWhatsappUrl(message) {
     const safeMessage = encodeURIComponent(message || "");
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${safeMessage}`;
   }
-
   /**
    * Sélecteur de contenance (30ml / 50ml) sur la page produit.
    * Nécessite : .size-option[data-size][data-price], #pd-price-value (optionnel),
@@ -25,9 +21,7 @@
     const options = document.querySelectorAll(".size-option");
     const priceEl = document.getElementById("pd-price-value");
     const waBtn = document.getElementById("btn-order-whatsapp");
-
     if (!options.length) return;
-
     options.forEach((option) => {
       option.addEventListener("click", () => selectSize(option));
       option.addEventListener("keydown", (e) => {
@@ -37,7 +31,6 @@
         }
       });
     });
-
     function selectSize(option) {
       options.forEach((o) => {
         o.classList.remove("active");
@@ -45,12 +38,9 @@
       });
       option.classList.add("active");
       option.setAttribute("aria-pressed", "true");
-
       const size = option.dataset.size || "";
       const price = option.dataset.price || "";
-
       if (priceEl && price) priceEl.textContent = price;
-
       if (waBtn) {
         const productName = waBtn.dataset.product || "Nature Chaimaa Hanafi";
         const message = `Bonjour, je souhaite commander : ${productName} (${size}). Merci de me confirmer la disponibilité.`;
@@ -58,7 +48,6 @@
       }
     }
   }
-
   /**
    * Boutons "Commander via WhatsApp" sans taille associée
    * (ex : carte produit ou section contact sur la page d'accueil).
@@ -70,7 +59,6 @@
       btn.setAttribute("href", buildWhatsappUrl(message));
     });
   }
-
   /**
    * Menu mobile : bascule l'affichage de #mainNav via le bouton #mobileMenuBtn.
    * Ferme automatiquement le menu quand on clique sur un lien.
@@ -79,9 +67,7 @@
     const btn = document.getElementById("mobileMenuBtn");
     const nav = document.getElementById("mainNav");
     if (!btn || !nav) return;
-
     btn.setAttribute("aria-expanded", "false");
-
     const setOpen = (open) => {
       nav.classList.toggle("is-open", open);
       btn.setAttribute("aria-expanded", String(open));
@@ -89,25 +75,20 @@
         ? '<i class="fa-solid fa-xmark"></i>'
         : '<i class="fa-solid fa-bars"></i>';
     };
-
     btn.addEventListener("click", () => setOpen(!nav.classList.contains("is-open")));
-
     nav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => setOpen(false));
     });
-
     // Ferme le menu si on repasse en largeur desktop
     window.addEventListener("resize", () => {
       if (window.innerWidth > 650) setOpen(false);
     });
   }
-
   document.addEventListener("DOMContentLoaded", () => {
     initSizeSelector();
     initSimpleWhatsappButtons();
     initMobileMenu();
-
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   });
-})();
+})();\n

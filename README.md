@@ -1,7 +1,5 @@
 # Nature Chaimaa Hanafi — site vitrine
-
 Site statique (HTML / CSS / JS, sans framework, sans backend). Structure :
-
 ```
 site/
 ├── index.html          → page d'accueil (présentation + carte produit)
@@ -12,9 +10,7 @@ site/
     ├── logo.png         → logo de la marque
     └── huile-hero.jpg   → photo produit (recadrée, sans les bandeaux de texte arabe)
 ```
-
 ## À compléter avant mise en ligne
-
 1. **Prix** : dans `product-huile.html`, les boutons `.size-option` ont un
    attribut `data-price="Sur demande"`. Remplace-le par le vrai prix
    (ex : `data-price="120 DH"`).
@@ -24,25 +20,19 @@ site/
    l'étiquette des flacons — confirme lequel est le bon avant publication.
 3. **Instagram** : le lien `@nature_chaimaa` dans le pied de page pointe
    vers `instagram.com/nature_chaimaa`, à vérifier.
-
 ## Ajouter un nouveau produit
-
 Comme tu es full-stack, voici le pattern à dupliquer :
-
 1. Copie `product-huile.html` → `product-XXX.html`, change le `<h1>`,
    la description, les tailles/prix, et l'image dans `.pd-media`.
 2. Dans `index.html`, duplique le bloc `<a class="product-card">` dans la
    section `#produits` et pointe le `href` vers ta nouvelle page.
 3. Ajoute la photo du produit dans `assets/`.
-
 Aucune base de données n'est nécessaire pour l'instant vu que c'est un
 site vitrine (pas de panier/paiement en ligne) — la commande se fait via
 WhatsApp. Si tu veux passer à plusieurs dizaines de produits, il vaudra
 mieux générer les pages produit depuis un petit fichier JSON/JS plutôt que
 dupliquer le HTML à la main ; dis-le moi et je peux le mettre en place.
-
 ## Sécurité (site statique, donc surface d'attaque volontairement réduite)
-
 - **Content-Security-Policy** stricte dans le `<head>` des deux pages :
   scripts autorisés uniquement en local (`script-src 'self'`), pas
   d'iframe externe possible (`frame-ancestors 'none'`), styles/fonts
@@ -65,10 +55,8 @@ dupliquer le HTML à la main ; dis-le moi et je peux le mettre en place.
   l'hébergeur (HTTPS forcé, headers de sécurité au niveau serveur, pas
   de fichiers sensibles exposés). Le CSP en meta tag est un filet, pas
   une garantie complète.
-
 ## Lancer en local
-
 Ouvre simplement `index.html` dans un navigateur, ou sers le dossier avec
 un serveur statique (ex : `python3 -m http.server` depuis le dossier
 `site/`) pour éviter les restrictions de certains navigateurs sur les
-fichiers ouverts en `file://`.
+fichiers ouverts en `file://`.\n\n
