@@ -71,6 +71,7 @@
     const setOpen = (open) => {
       nav.classList.toggle("is-open", open);
       btn.setAttribute("aria-expanded", String(open));
+      btn.setAttribute("aria-label", open ? "إغلاق القائمة" : "فتح القائمة");
       btn.innerHTML = open
         ? '<i class="fa-solid fa-xmark"></i>'
         : '<i class="fa-solid fa-bars"></i>';
