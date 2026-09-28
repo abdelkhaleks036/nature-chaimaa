@@ -47,6 +47,8 @@
         waBtn.setAttribute("href", buildWhatsappUrl(message));
       }
     }
+    const activeOption = Array.from(options).find((option) => option.classList.contains("active"));
+    if (activeOption) selectSize(activeOption);
   }
   /**
    * Boutons "Commander via WhatsApp" sans taille associée
@@ -68,6 +70,7 @@
     const nav = document.getElementById("mainNav");
     if (!btn || !nav) return;
     btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-label", "فتح القائمة");
     const setOpen = (open) => {
       nav.classList.toggle("is-open", open);
       btn.setAttribute("aria-expanded", String(open));
@@ -80,16 +83,36 @@
     nav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => setOpen(false));
     });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && nav.classList.contains("is-open")) {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+    document.addEventListener("click", (event) => {
+      if (
+        nav.classList.contains("is-open") &&
+        !nav.contains(event.target) &&
+        !btn.contains(event.target)
+      ) {
+        setOpen(false);
+      }
+    });
     // Ferme le menu si on repasse en largeur desktop
     window.addEventListener("resize", () => {
       if (window.innerWidth > 650) setOpen(false);
     });
   }
-  document.addEventListener("DOMContentLoaded", () => {
+  const initializeSite = () => {
     initSizeSelector();
     initSimpleWhatsappButtons();
     initMobileMenu();
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
-  });
-})();\n
+  };
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeSite, { once: true });
+  } else {
+    initializeSite();
+  }
+})();
