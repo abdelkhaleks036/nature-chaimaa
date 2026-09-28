@@ -141,6 +141,22 @@ button { font-family: inherit; }
 }
 .btn-whatsapp:hover { box-shadow: 0 12px 30px rgba(79, 111, 72, 0.32); }
 .btn-whatsapp i, .btn-whatsapp svg { font-size: 19px; width: 18px; height: 18px; fill: currentColor; }
+.order-dialog { width: min(520px, calc(100% - 28px)); max-width: none; max-height: min(90vh, 760px); margin: auto; padding: 0; overflow: auto; border: 1px solid var(--line); border-radius: 22px; background: var(--cream); color: var(--ink); box-shadow: 0 24px 80px rgba(20, 35, 24, 0.25); }
+.order-dialog::backdrop { background: rgba(24, 38, 28, 0.58); backdrop-filter: blur(4px); }
+.order-form { display: grid; gap: 10px; padding: 26px; }
+.order-dialog-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.order-dialog-head h2 { color: var(--forest); font-family: var(--font-display); font-size: 1.5rem; }
+.order-close { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; background: var(--white); color: var(--forest); font-size: 26px; cursor: pointer; }
+.order-intro { color: var(--ink-soft); font-size: 0.9rem; }
+.order-summary { display: grid; gap: 8px; margin: 4px 0; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
+.order-summary > div { display: flex; justify-content: space-between; gap: 14px; }
+.order-summary span { color: var(--ink-faint); }
+.order-summary strong { color: var(--forest); text-align: end; }
+.order-form label { color: var(--forest); font-size: 0.9rem; font-weight: 700; }
+.order-form input, .order-form select { width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--white); color: var(--ink); font: inherit; }
+.order-form input:focus, .order-form select:focus { outline: 2px solid var(--green); outline-offset: 1px; }
+.order-shipping { padding: 10px 12px; border-radius: 10px; background: var(--green-chip-bg); color: var(--green-chip-text); font-size: 0.9rem; }
+.order-submit { width: 100%; margin-top: 4px; }
 /* ---------- Hero ---------- */
 .hero { padding: 64px 0 72px; border-bottom: 1px solid var(--line); }
 .hero-grid {
